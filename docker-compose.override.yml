@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  env_dev:
+    container_name: env_dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      args:
+        USER_ID: ${USER_ID:-0}
+        GROUP_ID: ${GROUP_ID:-0}
+    command: tail -f /dev/null
+    env_file: .env.dev
+    volumes:
+      - ${PWD}:/home/www-data/app

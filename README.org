@@ -1,0 +1,45 @@
+#+title: Container development environment
+#+date: <2022-02-04 Fri>
+#+author: Vinícius Simões
+#+email: vinicius.simoes95@gmail.com
+
+Container development environment
+
+* Description
+An attempt to build dynamic developer environments using
+containerd. Work in progress.
+
+* Getting Started
+** Edit files
+Edit the first line of the =Dockerfile.dev= file with the choosen
+programming language container. Alpine containers isn't supported
+yet. Example:
+
+#+begin_src dockerfile
+FROM elixir:1.13-slim
+#+end_src
+
+On the Makefile, edit the section with =CONTAINER_APP= and =COMPOSE_APP=
+with the choosen container manager, by default is nerdctl +
+lima. Example:
+
+#+begin_src makefile
+  CONTAINER_APP = nerdctl.lima
+  COMPOSE_APP := $(CONTAINER_APP) compose
+#+end_src
+
+** Up environment
+Up the environment with:
+
+#+begin_src sh
+  make up
+#+end_src
+
+Get into shell your envinroment with:
+
+#+begin_src sh
+  make run env_dev /bin/bash
+#+end_src
+
+The current directory is mapped as a volume by default and all
+artifacts created/changed will be owned by the current user's host.
