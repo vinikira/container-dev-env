@@ -14,6 +14,7 @@ help:
 	@echo
 	@echo "    build - force the containers build/re-build"
 	@echo "    up - up the containers and builds if not already built"
+	@echo "    run <CONTAINER> <COMMAND> - run the <COMMAND> into the <CONTAINER>"
 	@echo "    down - down the containers"
 	@echo "    ps - list actie containers"
 

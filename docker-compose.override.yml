@@ -1,7 +1,6 @@
 version: '3.2'
 services:
   env_dev:
-    container_name: env_dev
     build:
       context: .
       dockerfile: Dockerfile.dev
